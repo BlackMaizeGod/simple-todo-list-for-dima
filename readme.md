@@ -3,6 +3,8 @@
 ## Documentation
 This is only simple todo list REST api
 
+User only able to access their own ToDo list.
+
 ## Endpoint
 
 # Header
