@@ -39,10 +39,10 @@ http://your-domain-host/api/todo/completed
 http://your-domain-host/api/todo/
 
 input params
-  - name
-  - priority
-  - location
-  - start_time
+  - name (string)
+  - priority (digits)
+  - location (string)
+  - start_time (time format 00:00)
 
 ## Updating todo (method:PUT)
 http://your-domain-host/api/todo/<id>
