@@ -79,7 +79,6 @@ class UsersController extends Controller
 
         $user = new Users();
         $user->username = $request->input('username');
-        $user->email    = $request->input('email');
         $user->password = (new BcryptHasher())->make($request->input('password'));
 
         if ($user->save()) {
