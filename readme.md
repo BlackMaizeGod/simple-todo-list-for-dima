@@ -21,14 +21,16 @@ http://your-domain-host/api/register
 
 # ToDo endpoint
 
-## List all available todo
+## List all available todo (method:GET)
 http://your-domain-host/api/todo/
 
 has parameter of
  - order_by=column_name
  - direction=<ASC or DESC>
 
-## Display all completed todo
+ example http://your-domain-host/api/todo/?order_by=priority&direction=DESC
+
+## Display all completed todo (method:GET)
 http://your-domain-host/api/todo/completed
 
 ## Creat new todo (method:POST)
