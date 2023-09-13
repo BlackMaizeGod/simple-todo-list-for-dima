@@ -1,0 +1,6 @@
+1. add host todo-list-api.local to hosts file
+2. install docker compose
+4. enter to the project root dir
+5. docker-compose up -d --build --force-recreate
+6. docker exec -it todo-list-process-manager composer install
+7. docker exec -it todo-list-process-manager php artisan migrate

@@ -20,7 +20,7 @@ class CreateTodoTable extends Migration
             $table->text('name')->nullable(); // string 0 - 500 char
             $table->integer('priority')->unsigned()->default(0);  // integer 0 - 2 char
             $table->text('location')->nullable();  // string 0 - 273 char
-            $table->time('start_time')->default(DB::raw('CURRENT_TIMESTAMP')); // Time
+            $table->timestamp('start_time')->default(DB::raw('CURRENT_TIMESTAMP')); // Time
             $table->boolean('completed')->default(0);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

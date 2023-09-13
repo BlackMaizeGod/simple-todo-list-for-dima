@@ -13,30 +13,30 @@ User only able to access their own ToDo list.
 - Authorization: Bearer <token>
 
 # Users endpoint
-http://your-domain-host/api/login
+http://todo-list-api.local/api/login
 - username
 - password
 
-http://your-domain-host/api/register
+http://todo-list-api.local/api/register
 - username
 - password
 
 # ToDo endpoint
 
 ## List all available todo (method:GET)
-http://your-domain-host/api/todo/
+http://todo-list-api.local/api/todo/
 
 has parameter of
  - order_by=column_name
  - direction=<ASC or DESC>
 
- example http://your-domain-host/api/todo/?order_by=priority&direction=DESC
+ example http://todo-list-api.local/api/todo/?order_by=priority&direction=DESC
 
 ## Display all completed todo (method:GET)
-http://your-domain-host/api/todo/completed
+http://todo-list-api.local/api/todo/completed
 
 ## Creat new todo (method:POST)
-http://your-domain-host/api/todo/
+http://todo-list-api.local/api/todo/
 
 input params
   - name (string)
@@ -45,7 +45,7 @@ input params
   - start_time (time format 00:00)
 
 ## Updating todo (method:PUT)
-http://your-domain-host/api/todo/<id>
+http://todo-list-api.local/api/todo/<id>
 
 ## Deleting todo (method:DELETE)
-http://your-domain-host/api/todo/<id>
+http://todo-list-api.local/api/todo/<id>

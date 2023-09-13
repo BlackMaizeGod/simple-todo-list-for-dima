@@ -1,0 +1,51 @@
+version: '3.7'
+
+volumes:
+  todo-list-volume:
+    name: todo-list-volume
+
+networks:
+  todo-list-network:
+    name: todo-list-network
+    ipam:
+      config:
+        - subnet: 129.21.0.0/16
+
+services:
+  todo-list-web-server:
+    container_name: todo-list-web-server
+    image: nginx:latest
+    restart: unless-stopped
+    networks:
+      todo-list-network:
+        ipv4_address: 129.21.224.80
+    volumes:
+      - ./docker/virtual-host.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www
+
+  todo-list-db:
+    container_name: todo-list-db
+    image: mysql:5.7.40
+    restart: unless-stopped
+    networks:
+      - todo-list-network
+    volumes:
+      - todo-list-volume:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=api-db
+      - MYSQL_USER=api-usr
+      - MYSQL_PASSWORD=api-pwd
+
+  todo-list-process-manager:
+    container_name: todo-list-process-manager
+    image: blackmaizegod/php-fpm:7.2
+    restart: unless-stopped
+    networks:
+      - todo-list-network
+    links:
+      - todo-list-db:db
+    volumes:
+      - .:/var/www
+    environment:
+      - COMPOSER_VERSION=2
